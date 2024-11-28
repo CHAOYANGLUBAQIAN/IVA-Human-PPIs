@@ -12,6 +12,8 @@ pip install numpy==1.23.5
 ##  How To Run
 ###  1.Construct negative samples  
 ```
+- Input paths to the following resources (separated by space)
+
 python compare_neg_tech_with_val.py
 
 ```
