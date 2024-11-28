@@ -10,7 +10,7 @@ pip install pandas==2.0.3
 pip install numpy==1.23.5
 ``` 
 ##  How To Run
-###  1.Construct negative samples  
+###  1.Compare negative samples  
 
 - Input paths to the following resources (separated by space)  
 1.'data/features/Random sampling.csv'  
