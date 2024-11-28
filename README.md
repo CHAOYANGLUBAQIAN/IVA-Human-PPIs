@@ -15,27 +15,22 @@ pip install numpy==1.23.5
 python compare_neg_tech_with_val.py
 
 ```
-###  2.Feature selection   
-```
-python  compare_models.py
-
-```
-###  3.Ablation experiment   
+###  2.Ablation experiment   
 ```
 python  ablation_study_of_CT+Moran.py
 
 ```
-###  4.Selection of classifier 
+###  3.Selection of classifier 
 ```
 python  compare_models.py
 
 ```
-###  5.XGBoost uses grid search for parameters  
+###  4.XGBoost uses grid search for parameters  
 ```
 python  search_best_param.py
 
 ```
-###  6.The trained model is prepared for prediction  
+###  5.The trained model is prepared for prediction  
 ```
 python  predict.py
 
