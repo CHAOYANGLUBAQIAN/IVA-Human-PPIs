@@ -24,14 +24,14 @@ data/results/Comparative_results_of_negative_sampling_methods.csv
 python compare_neg_tech_with_val.py
 ```
 ###  2.Selection of features  
-The dataset was transformed into a digital vector using 11 commonly used features from sequence based features,  
+- The dataset was transformed into a digital vector using 11 commonly used features from sequence based features,  
 and the most suitable combination of features was found to ultimately determine the CT+Moran combination.  
 ```
 
 python  compare_features.py
 ```
 ###  3.Selection of classifier 
-To comparing some widely used PPI classifiers such as Random Forest (RF), Support Vector Machine (SVM), Logistic Regression (LR), K-Neighbor (KNN),
+- To comparing some widely used PPI classifiers such as Random Forest (RF), Support Vector Machine (SVM), Logistic Regression (LR), K-Neighbor (KNN),
 other tree models such as Extreme Random Tree (ET) and Adaptive Boosting (Adaboost) were also compared, and ultimately XGBoost was chosen for prediction.
 ```
 python  compare_models.py  
@@ -45,7 +45,7 @@ python  ablation_study_of_CT+Moran.py
 
 ```
 ###  5.The trained model is prepared for prediction  
-predict data:data/predict/test.csv  
+- predict data path:data/predict/test.csv  
 ```
 python  predict.py
 
