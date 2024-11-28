@@ -1,4 +1,4 @@
-# Prediction of influenza A virus-human protein-protein interactions using XGBoost with continuous and discontinuous amino acids information
+# Perference of different negative sampling methods and models 
    A sequence based prediction model for the interaction between influenza A virus and human proteins was constructed to validate and compare the choices made throughout the entire process.   
 ##  Install dependencies  
 ```
@@ -24,11 +24,19 @@ data/results/Comparative_results_of_negative_sampling_methods.csv
 python compare_neg_tech_with_val.py
 ```
 ###  2.Selection of features  
-- The dataset was transformed into a digital vector using 11 commonly used features from sequence based features,  
-and the most suitable combination of features was found to ultimately determine the CT+Moran combination.  
+- 2.1The dataset was transformed into a digital vector using 11 commonly used features from sequence based features,  
+and the most suitable combination of features was found to ultimately determine the CT+Moran combination.
+
 ```
 
 python  compare_features.py
+```
+- 2.2Ablation experiment   
+
+
+```
+
+python  ablation_study_of_CT+Moran.py
 ```
 ###  3.Selection of classifier 
 - To comparing some widely used PPI classifiers such as Random Forest (RF), Support Vector Machine (SVM), Logistic Regression (LR), K-Neighbor (KNN),
@@ -38,13 +46,8 @@ python  compare_models.py
 - Input paths to the following resources (separated by space)
 
 ```
-###  4.Ablation experiment   
 
-```
-python  ablation_study_of_CT+Moran.py
-
-```
-###  5.The trained model is prepared for prediction  
+###  4.The trained model is prepared for prediction  
 - predict data path:data/predict/test.csv  
 ```
 python  predict.py
