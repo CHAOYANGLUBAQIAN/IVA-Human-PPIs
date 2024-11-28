@@ -8,7 +8,7 @@ from xgboost import XGBClassifier
 XGB = joblib.load('data/model/random_sort_XGB.kpl')
 
 # 加载待预测的数据
-data = pd.read_csv('data/predict/in/test.csv')
+data = pd.read_csv('data/predict/test.csv')
 
 # 提取特征列
 features = data.drop('Combined_ID', axis=1)
