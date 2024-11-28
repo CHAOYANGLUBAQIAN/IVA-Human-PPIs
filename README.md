@@ -12,7 +12,7 @@ pip install numpy==1.23.5
 ##  How To Run
 ###  1.Construct negative samples  
 
-- Input paths to the following resources (separated by space)
+- Input paths to the following resources (separated by space)  
 1.'data/features/Random sampling.csv'  
 2.'data/features/subcellular localization.csv'  
 3.'data/features/Dissimilarity-based sampling.csv'  
@@ -31,7 +31,7 @@ and the most suitable combination of features was found to ultimately determine 
 python  compare_features.py
 ```
 ###  3.Selection of classifier 
-To comparing some widely used PPI classifiers such as Random Forest (RF), Support Vector Machine (SVM), Logistic Regression (LR), K-Neighbor (KNN),  
+To comparing some widely used PPI classifiers such as Random Forest (RF), Support Vector Machine (SVM), Logistic Regression (LR), K-Neighbor (KNN),
 other tree models such as Extreme Random Tree (ET) and Adaptive Boosting (Adaboost) were also compared, and ultimately XGBoost was chosen for prediction.
 ```
 python  compare_models.py  
