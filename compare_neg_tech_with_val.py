@@ -13,9 +13,8 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-# 定义模型
-# 定义模型
 models = {
+    
     'SVM': SVC(),
     'Logistic Regression': LogisticRegression(),
     'KNN': KNeighborsClassifier(),
@@ -25,28 +24,25 @@ models = {
     'XGBoost': XGBClassifier(),
     'LightGBM': lgb.LGBMClassifier()
 }
-# 定义数据集列表
-datasets = ['data/features/合/基于度的差异负采样/CT.csv', 'data/features/合/基于度/CT.csv',
-            'data/features/合/差异随机负采样/CT.csv', 'data/features/合/亚细胞定位/CT.csv' ,'data/features/合/完全共享/CT.csv']
 
-# 定义用于存储结果的DataFrame
+datasets = ['data/features/Random sampling.csv', 'data/features/subcellular localization.csv',
+            'data/features/Dissimilarity-based sampling.csv','data/features/Degree-based sampling.csv','data/features/Degree and Dissimilarity-based.csv']
 results_df = pd.DataFrame(columns=['Model', 'Dataset', 'CV_Accuracy', 'Test_Accuracy'])
 
-# 对每个数据集进行测试
+
 table = pd.DataFrame(columns=['Feature', 'ACC'])
 
 for dataset in datasets:
     scores = []
     print("Dataset:", dataset)
-    # 读取数据集
+
     df = pd.read_csv(dataset, header=0, encoding='utf-8')
-    df = df.sample(frac=1, random_state=42).reset_index(drop=True)  # 打乱顺序，固定随机因子
+    df = df.sample(frac=1, random_state=42).reset_index(drop=True)
 
-    # 提取特征和标签
+
     X = df.iloc[:, 1:-1]
-    y = df.iloc[:, -1]  # 最后一列为标签
+    y = df.iloc[:, -1]
 
-    # 划分独立的验证集
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     for model_name, model in models.items():
@@ -67,15 +63,13 @@ for dataset in datasets:
         mean_cv_accuracy = np.mean(cv_scores)
         print("Mean CV Accuracy:", mean_cv_accuracy)
 
-        # 使用之前训练好的模型对独立测试集进行评估
+
         y_pred_test = model.predict(X_test)
         test_accuracy = accuracy_score(y_test, y_pred_test)
         print("Test Accuracy:", test_accuracy)
 
-        # 将结果存储到DataFrame中
-        # 将结果存储到DataFrame中
         results_df = results_df.append({'Model': model_name, 'Dataset': dataset,
                                         'CV_Accuracy': mean_cv_accuracy, 'Test_Accuracy': test_accuracy},
                                        ignore_index=True)
-        # 保存结果到CSV文件
-results_df.to_csv('data/out/compare_neg_tech_with_val.csv', index=False)
+
+results_df.to_csv('data/results/Comparative_results_of_negative_sampling_methods.csv', index=False)
